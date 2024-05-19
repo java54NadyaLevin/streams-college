@@ -65,7 +65,7 @@ class ColledgeTests {
 				.sorted((a1, a2) -> 
 				Double.compare(Arrays.stream(a2.marks()).average().getAsDouble(),
 						Arrays.stream(a1.marks()).average().getAsDouble()))
-				.toArray(Student[]:: new);
+				.toArray(Student[]:: new); 
 	
 		return students;
 	}

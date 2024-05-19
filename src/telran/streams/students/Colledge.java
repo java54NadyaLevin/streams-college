@@ -14,7 +14,7 @@ public class Colledge implements Iterable<Student> {
 	}
 private class ColledgeIterator implements Iterator<Student> {
 
-	@Override
+	@Override 
 	public boolean hasNext() {
 		return index < students.length;
 	}
