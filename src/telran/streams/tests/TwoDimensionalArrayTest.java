@@ -34,6 +34,7 @@ int[][] array = {
 		IntSummaryStatistics iss = Arrays.stream(array)
 				.flatMapToInt(a -> Arrays.stream(a)).summaryStatistics();
 		
+		
 		assertEquals(4, iss.getMin());
 		assertEquals(20, iss.getMax());
 		assertEquals(95, iss.getSum());
