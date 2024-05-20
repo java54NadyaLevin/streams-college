@@ -3,6 +3,7 @@ package telran.streams.students;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.IntSummaryStatistics;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -61,10 +62,8 @@ class ColledgeTests {
 
 	private static Student[] sortStudents(Colledge col) {
 		Student[] students = StreamSupport.stream(col.spliterator(), false)
-				.sorted((a1, a2) -> Integer.compare(a2.hours(), a1.hours()))
-				.sorted((a1, a2) -> 
-				Double.compare(Arrays.stream(a2.marks()).average().getAsDouble(),
-						Arrays.stream(a1.marks()).average().getAsDouble()))
+				.sorted(Comparator.comparing((Student a) -> Arrays.stream(a.marks()).average().getAsDouble())
+				.thenComparingInt(Student::hours).reversed())
 				.toArray(Student[]:: new); 
 	
 		return students;
